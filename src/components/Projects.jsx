@@ -155,16 +155,17 @@ function ProjectCard({ project, delay }) {
 
           <div style={{ display: 'flex', gap: '16px' }}>
             {[{ label: 'GitHub', icon: '⬡' }, { label: 'Demo', icon: '↗' }].map(link => (
-              <a key={link.label} href="#" style={{
+              <button key={link.label} style={{
                 fontFamily: 'var(--font-mono)', fontSize: '11px',
                 letterSpacing: '0.1em', textTransform: 'uppercase',
                 color: hovered ? project.accent : 'var(--white-muted)',
                 display: 'flex', alignItems: 'center', gap: '6px',
                 transition: 'all 0.3s',
+                background: 'none', border: 'none', cursor: 'pointer', padding: 0,
               }}
               onMouseEnter={e => { e.currentTarget.style.gap = '10px'; }}
               onMouseLeave={e => { e.currentTarget.style.gap = '6px'; }}
-              ><span>{link.icon}</span> {link.label}</a>
+              ><span>{link.icon}</span> {link.label}</button>
             ))}
           </div>
         </div>

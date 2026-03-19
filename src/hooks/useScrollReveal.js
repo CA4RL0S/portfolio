@@ -2,6 +2,8 @@ import { useEffect, useRef } from 'react';
 
 export default function useScrollReveal(options = {}) {
   const ref = useRef(null);
+  const threshold = options.threshold || 0.15;
+  const repeat = options.repeat || false;
 
   useEffect(() => {
     const el = ref.current;
@@ -11,17 +13,17 @@ export default function useScrollReveal(options = {}) {
       ([entry]) => {
         if (entry.isIntersecting) {
           el.classList.add('visible');
-          if (!options.repeat) observer.unobserve(el);
-        } else if (options.repeat) {
+          if (!repeat) observer.unobserve(el);
+        } else if (repeat) {
           el.classList.remove('visible');
         }
       },
-      { threshold: options.threshold || 0.15, ...options }
+      { threshold }
     );
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [options.threshold, options.repeat]);
+  }, [threshold, repeat]);
 
   return ref;
 }
