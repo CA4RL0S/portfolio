@@ -136,7 +136,11 @@ export default function Contact() {
             </div>
 
             {/* Socials */}
-            <div style={{ display: 'flex', gap: '16px' }}>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(2, 1fr)',
+              gap: '12px',
+            }}>
               {socials.map(s => (
                 <a key={s.name} href={s.href} style={{
                   display: 'flex', alignItems: 'center', gap: '8px',
