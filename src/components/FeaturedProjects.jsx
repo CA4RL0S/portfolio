@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import featuredProjects from '../data/featuredProjects';
 import './FeaturedProjects.css';
+import ProjectVideo from './ProjectVideo';
 
 const imageUrl = image => `${process.env.PUBLIC_URL || ''}${image.src}`;
 
@@ -55,8 +56,9 @@ function ScreenshotViewer({ selection, onClose, onNavigate }) {
   );
 }
 
-function FeaturedProject({ project, number, onOpen }) {
+function FeaturedProject({ project, number, onOpen, isViewerOpen }) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [showVideo, setShowVideo] = useState(Boolean(project.video));
   const activeImage = project.images[activeIndex];
 
   return (
@@ -81,17 +83,27 @@ function FeaturedProject({ project, number, onOpen }) {
           )}
         </div>
         <div className="project-gallery">
+          {project.video && (
+            <div className="project-media-switch" role="group" aria-label={`${project.name} media`}>
+              <button type="button" aria-pressed={showVideo} onClick={() => setShowVideo(true)}>Video demo</button>
+              <button type="button" aria-pressed={!showVideo} onClick={() => setShowVideo(false)}>Screenshots ({project.images.length})</button>
+            </div>
+          )}
           <figure>
+            {showVideo ? (
+              <ProjectVideo src={`${process.env.PUBLIC_URL || ''}${project.video}`} poster={imageUrl(project.images[0])} title={project.name} suspended={isViewerOpen} />
+            ) : (
             <button type="button" className="project-preview" onClick={event => onOpen(project, activeIndex, event.currentTarget)} aria-label={`Enlarge ${project.name}: ${activeImage.caption}`}>
               <div className="project-preview-chrome" aria-hidden="true"><span /><span /><span /><span className="project-preview-name">{project.name}</span></div>
               <img src={imageUrl(activeImage)} alt={`${project.name}: ${activeImage.caption}`} width={activeImage.width} height={activeImage.height} loading="lazy" decoding="async" />
               <span className="project-preview-hint">View full screen ↗</span>
             </button>
-            <figcaption aria-live="polite"><span>{activeImage.caption}</span><span>{activeIndex + 1} / {project.images.length}</span></figcaption>
+            )}
+            <figcaption aria-live="polite"><span>{showVideo ? 'App walkthrough' : activeImage.caption}</span><span>{showVideo ? 'Video' : `${activeIndex + 1} / ${project.images.length}`}</span></figcaption>
           </figure>
           <div className="project-thumbnails" role="group" aria-label={`${project.name} screenshots`}>
             {project.images.map((image, index) => (
-              <button type="button" key={image.src} className="project-thumbnail" aria-label={`Show ${image.caption}`} aria-pressed={index === activeIndex} onClick={() => setActiveIndex(index)} title={image.caption}>
+              <button type="button" key={image.src} className="project-thumbnail" aria-label={`Show ${image.caption}`} aria-pressed={!showVideo && index === activeIndex} onClick={() => { setActiveIndex(index); setShowVideo(false); }} title={image.caption}>
                 <img src={imageUrl(image)} alt="" width={image.width} height={image.height} loading="lazy" decoding="async" />
               </button>
             ))}
@@ -131,7 +143,7 @@ export default function FeaturedProjects() {
   return (
     <>
       <div className="featured-projects">
-        {featuredProjects.map((project, index) => <FeaturedProject key={project.id} project={project} number={String(index + 1).padStart(2, '0')} onOpen={openViewer} />)}
+        {featuredProjects.map((project, index) => <FeaturedProject key={project.id} project={project} number={String(index + 1).padStart(2, '0')} onOpen={openViewer} isViewerOpen={Boolean(selection)} />)}
       </div>
       {selection && <ScreenshotViewer selection={selection} onClose={closeViewer} onNavigate={navigate} />}
     </>

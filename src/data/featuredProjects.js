@@ -60,6 +60,7 @@ const featuredProjects = [
     repository: 'https://github.com/CA4RL0S/app-paqueteria',
     accent: '#ff9d88',
     images: screenshots.paqueteria,
+    video: '/images/projects/app-paqueteria/walkthrough.mp4',
   },
 ];
 

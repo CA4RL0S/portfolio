@@ -76,3 +76,9 @@
   .featured-project--mobile .project-thumbnails { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .featured-project--mobile .project-thumbnail img { max-height: 130px; }
 }
+
+.project-demo-video { display: block; width: min(100%, 240px); height: auto; aspect-ratio: 384/848; margin-inline: auto; background: #060c15; border: 1px solid #344256; border-radius: 18px; }
+.project-media-switch { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.project-media-switch button { min-height: 44px; padding: 10px 14px; border: 1px solid #344256; border-radius: 6px; color: #afbdcf; font: 11px var(--font-mono); }
+.project-media-switch button[aria-pressed='true'] { color: var(--project-accent); border-color: var(--project-accent); background: #ffffff08; }
+.project-demo-video:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
