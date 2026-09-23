@@ -39,6 +39,28 @@ const featuredProjects = [
     accent: '#d8c29c',
     images: screenshots.jaque,
   },
+  {
+    id: 'app-paqueteria',
+    name: 'Paquetería Mérida',
+    category: 'Local logistics · Parcel delivery',
+    type: 'Mobile application',
+    format: 'mobile',
+    title: 'Local deliveries, from pickup to doorstep.',
+    description: 'A personal mobile project for local parcel pickup and delivery in Mérida. Built with Flutter and a Node.js API, it connects customers, couriers and administrators through shipment requests, delivery updates and map-based tracking.',
+    features: [
+      { title: 'Book & manage deliveries', text: 'Pickup and destination selection, saved addresses, delivery options and shipment history in one mobile flow.' },
+      { title: 'Follow every stage', text: 'Mapbox maps and routes, courier location updates and a status timeline from assignment to delivery, with push and in-app notifications.' },
+      { title: 'Accounts & payments', text: 'Role-based access for customers, couriers and administrators, email and SMS verification, and card payment integration with Stripe.' },
+    ],
+    stack: [
+      { label: 'Mobile', items: ['Flutter', 'Dart', 'Riverpod', 'GoRouter', 'Dio'] },
+      { label: 'Backend & data', items: ['Node.js', 'Express', 'PostgreSQL', 'Supabase Auth', 'Supabase Realtime'] },
+      { label: 'Integrations', items: ['Mapbox', 'Firebase FCM', 'Stripe', 'Resend', 'Twilio Verify'] },
+    ],
+    repository: 'https://github.com/CA4RL0S/app-paqueteria',
+    accent: '#ff9d88',
+    images: screenshots.paqueteria,
+  },
 ];
 
 export default featuredProjects;

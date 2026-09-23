@@ -128,5 +128,43 @@
       "width": 912,
       "height": 500
     }
+  ],
+  "paqueteria": [
+    {
+      "src": "/images/projects/app-paqueteria/home.jpg",
+      "caption": "Home and delivery options",
+      "width": 702,
+      "height": 1600
+    },
+    {
+      "src": "/images/projects/app-paqueteria/sign-in.png",
+      "caption": "Sign-in screen",
+      "width": 1179,
+      "height": 2556
+    },
+    {
+      "src": "/images/projects/app-paqueteria/assigned.jpg",
+      "caption": "Courier assigned and shipment details",
+      "width": 702,
+      "height": 1600
+    },
+    {
+      "src": "/images/projects/app-paqueteria/collected.jpg",
+      "caption": "Package collected and delivery route",
+      "width": 561,
+      "height": 1280
+    },
+    {
+      "src": "/images/projects/app-paqueteria/delivered.jpg",
+      "caption": "Delivery confirmation and status timeline",
+      "width": 561,
+      "height": 1280
+    },
+    {
+      "src": "/images/projects/app-paqueteria/notifications.jpg",
+      "caption": "Shipment notifications",
+      "width": 561,
+      "height": 1280
+    }
   ]
 }

@@ -29,7 +29,7 @@ function ScreenshotViewer({ selection, onClose, onNavigate }) {
   return (
     <dialog
       ref={dialogRef}
-      className="project-viewer"
+      className={`project-viewer${project.format === 'mobile' ? ' project-viewer--mobile' : ''}`}
       aria-labelledby="viewer-title"
       onCancel={event => { event.preventDefault(); close(); }}
       onClick={event => { if (event.target === event.currentTarget) close(); }}
@@ -60,11 +60,11 @@ function FeaturedProject({ project, number, onOpen }) {
   const activeImage = project.images[activeIndex];
 
   return (
-    <article className="featured-project" style={{ '--project-accent': project.accent }} aria-labelledby={`${project.id}-title`}>
+    <article className={`featured-project${project.format === 'mobile' ? ' featured-project--mobile' : ''}`} style={{ '--project-accent': project.accent }} aria-labelledby={`${project.id}-title`}>
       <div className="featured-project-heading">
         <span className="featured-project-number">{number}</span>
         <p>{project.category}</p>
-        <span className="featured-project-type">Web application</span>
+        <span className="featured-project-type">{project.type || 'Web application'}</span>
       </div>
       <div className="featured-project-content">
         <div className="featured-project-copy">
@@ -76,6 +76,9 @@ function FeaturedProject({ project, number, onOpen }) {
               <li key={feature.title}><h4>{feature.title}</h4><p>{feature.text}</p></li>
             ))}
           </ul>
+          {project.repository && (
+            <a className="project-repository-link" href={project.repository} target="_blank" rel="noopener noreferrer" aria-label={`View ${project.name} source code on GitHub (opens in a new tab)`}>View source on GitHub <span aria-hidden="true">↗</span></a>
+          )}
         </div>
         <div className="project-gallery">
           <figure>
@@ -128,7 +131,7 @@ export default function FeaturedProjects() {
   return (
     <>
       <div className="featured-projects">
-        {featuredProjects.map((project, index) => <FeaturedProject key={project.id} project={project} number={`0${index + 1}`} onOpen={openViewer} />)}
+        {featuredProjects.map((project, index) => <FeaturedProject key={project.id} project={project} number={String(index + 1).padStart(2, '0')} onOpen={openViewer} />)}
       </div>
       {selection && <ScreenshotViewer selection={selection} onClose={closeViewer} onNavigate={navigate} />}
     </>
