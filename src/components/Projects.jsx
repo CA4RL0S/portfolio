@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
+import FeaturedProjects from './FeaturedProjects';
 
 const projects = [
   {
@@ -194,13 +195,15 @@ export default function Projects() {
           <p className="section-label">03 / Projects</p>
           <h2 className="section-title">Featured <span>work</span></h2>
           <p style={{ color: 'var(--white-muted)', fontSize: '15px', maxWidth: '500px', marginTop: '8px' }}>
-            Things I've built, shipped, and learned from.
+            Selected projects, from public services to client collaboration.
           </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(290px, 1fr))', gap: '24px' }}>
+        <FeaturedProjects />
+        <h3 className="other-projects-title">More projects</h3>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(290px, 100%), 1fr))', gap: '24px' }}>
           {projects.map((p, i) => (
-            <ProjectCard key={p.name} project={p} delay={i * 110} />
+            <ProjectCard key={p.name} project={{ ...p, number: String(i + 3).padStart(2, '0') }} delay={i * 110} />
           ))}
         </div>
       </div>

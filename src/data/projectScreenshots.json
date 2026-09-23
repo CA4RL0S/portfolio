@@ -1,0 +1,132 @@
+{
+  "umaba": [
+    {
+      "src": "/images/projects/umaba/01.webp",
+      "caption": "Citizen portal",
+      "width": 798,
+      "height": 438
+    },
+    {
+      "src": "/images/projects/umaba/02.webp",
+      "caption": "Administrative dashboard",
+      "width": 812,
+      "height": 446
+    },
+    {
+      "src": "/images/projects/umaba/03.webp",
+      "caption": "Appointment request",
+      "width": 834,
+      "height": 458
+    },
+    {
+      "src": "/images/projects/umaba/04.webp",
+      "caption": "Pet registration",
+      "width": 912,
+      "height": 498
+    },
+    {
+      "src": "/images/projects/umaba/05.webp",
+      "caption": "Appointment availability",
+      "width": 912,
+      "height": 500
+    },
+    {
+      "src": "/images/projects/umaba/06.webp",
+      "caption": "Application management",
+      "width": 912,
+      "height": 500
+    },
+    {
+      "src": "/images/projects/umaba/07.webp",
+      "caption": "Cash desk and payments",
+      "width": 912,
+      "height": 500
+    },
+    {
+      "src": "/images/projects/umaba/08.webp",
+      "caption": "Staff and operational roles",
+      "width": 912,
+      "height": 502
+    },
+    {
+      "src": "/images/projects/umaba/09.webp",
+      "caption": "Audit log",
+      "width": 912,
+      "height": 500
+    },
+    {
+      "src": "/images/projects/umaba/10.webp",
+      "caption": "Municipal program coverage",
+      "width": 912,
+      "height": 500
+    }
+  ],
+  "jaque": [
+    {
+      "src": "/images/projects/jaque/01.webp",
+      "caption": "Client project workspace",
+      "width": 912,
+      "height": 502
+    },
+    {
+      "src": "/images/projects/jaque/02.webp",
+      "caption": "Project manager dashboard",
+      "width": 912,
+      "height": 502
+    },
+    {
+      "src": "/images/projects/jaque/03.webp",
+      "caption": "Project creation wizard",
+      "width": 912,
+      "height": 496
+    },
+    {
+      "src": "/images/projects/jaque/04.webp",
+      "caption": "Project overview and milestones",
+      "width": 912,
+      "height": 498
+    },
+    {
+      "src": "/images/projects/jaque/05.webp",
+      "caption": "Client approvals and change requests",
+      "width": 912,
+      "height": 500
+    },
+    {
+      "src": "/images/projects/jaque/06.webp",
+      "caption": "Project files and documents",
+      "width": 912,
+      "height": 498
+    },
+    {
+      "src": "/images/projects/jaque/07.webp",
+      "caption": "Project team and roles",
+      "width": 912,
+      "height": 500
+    },
+    {
+      "src": "/images/projects/jaque/08.webp",
+      "caption": "Activity log",
+      "width": 912,
+      "height": 498
+    },
+    {
+      "src": "/images/projects/jaque/09.webp",
+      "caption": "Integration management",
+      "width": 912,
+      "height": 502
+    },
+    {
+      "src": "/images/projects/jaque/10.webp",
+      "caption": "DocuSign configuration",
+      "width": 912,
+      "height": 500
+    },
+    {
+      "src": "/images/projects/jaque/11.webp",
+      "caption": "Portal sign in",
+      "width": 912,
+      "height": 500
+    }
+  ]
+}
