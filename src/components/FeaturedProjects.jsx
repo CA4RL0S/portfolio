@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import featuredProjects from '../data/featuredProjects';
 import './FeaturedProjects.css';
 import ProjectVideo from './ProjectVideo';
+import ProjectLink from './ProjectLink';
 
 const imageUrl = image => `${process.env.PUBLIC_URL || ''}${image.src}`;
 
@@ -62,7 +63,7 @@ function FeaturedProject({ project, number, onOpen, isViewerOpen }) {
   const activeImage = project.images[activeIndex];
 
   return (
-    <article className={`featured-project${project.format === 'mobile' ? ' featured-project--mobile' : ''}`} style={{ '--project-accent': project.accent }} aria-labelledby={`${project.id}-title`}>
+    <article id={project.id} data-project className={`featured-project${project.format === 'mobile' ? ' featured-project--mobile' : ''}`} style={{ '--project-accent': project.accent }} aria-labelledby={`${project.id}-title`}>
       <div className="featured-project-heading">
         <span className="featured-project-number">{number}</span>
         <p>{project.category}</p>
@@ -78,6 +79,7 @@ function FeaturedProject({ project, number, onOpen, isViewerOpen }) {
               <li key={feature.title}><h4>{feature.title}</h4><p>{feature.text}</p></li>
             ))}
           </ul>
+          <ProjectLink id={project.id} name={project.name} />
           {project.repository && (
             <a className="project-repository-link" href={project.repository} target="_blank" rel="noopener noreferrer" aria-label={`View ${project.name} source code on GitHub (opens in a new tab)`}>View source on GitHub <span aria-hidden="true">↗</span></a>
           )}

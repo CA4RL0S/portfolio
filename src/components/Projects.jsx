@@ -1,9 +1,12 @@
 import { useRef, useEffect, useState } from 'react';
 import FeaturedProjects from './FeaturedProjects';
 import featuredProjects from '../data/featuredProjects';
+import ProjectLink from './ProjectLink';
+import useProjectNavigation from '../hooks/useProjectNavigation';
 
 const projects = [
   {
+    id: 'kiosk-app',
     name: 'KioskApp',
     desc: 'A C# API with a PostgreSQL database and an administrative panel built in React. Designed for kiosk-style point-of-sale interactions.',
     tech: ['C#', 'ASP.NET Core', 'PostgreSQL', 'React'],
@@ -13,6 +16,7 @@ const projects = [
     number: '01',
   },
   {
+    id: 'evaluator-app',
     name: 'EvaluatorApp',
     desc: 'Web system for evaluating student projects with role-based access. Includes reviewer dashboards, scoring rubrics, and reporting tools.',
     tech: ['ASP.NET Core', 'PostgreSQL', 'React', 'Docker'],
@@ -22,6 +26,7 @@ const projects = [
     number: '02',
   },
   {
+    id: 'cycling-app',
     name: 'Cycling App',
     desc: 'Mobile app built in Flutter integrated with smartwatches for real-time heart rate monitoring and GPS tracking during cycling sessions.',
     tech: ['Flutter', 'Bluetooth LE', 'GPS', 'Smartwatch API'],
@@ -31,6 +36,7 @@ const projects = [
     number: '03',
   },
   {
+    id: 'student-app',
     name: 'StudentApp',
     desc: 'Mobile application integrating Microsoft Authentication (MSAL / Azure AD) for secure SSO login with role-based access control and token management.',
     tech: ['.NET MAUI', 'MSAL', 'Azure AD'],
@@ -85,7 +91,7 @@ function ProjectCard({ project, delay }) {
   };
 
   return (
-    <div ref={wrapRef} style={{
+    <div id={project.id} data-project ref={wrapRef} style={{
       opacity: 0, transform: 'translateY(32px)',
       transition: 'opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1)',
     }}>
@@ -155,6 +161,7 @@ function ProjectCard({ project, delay }) {
             ))}
           </div>
 
+          <ProjectLink id={project.id} name={project.name} />
           <div style={{ display: 'flex', gap: '16px' }}>
             {[{ label: 'GitHub', icon: '⬡' }, { label: 'Demo', icon: '↗' }].map(link => (
               <button key={link.label} style={{
@@ -177,6 +184,7 @@ function ProjectCard({ project, delay }) {
 }
 
 export default function Projects() {
+  useProjectNavigation();
   const titleRef = useRef(null);
 
   useEffect(() => {
